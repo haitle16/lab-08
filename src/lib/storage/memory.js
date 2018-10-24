@@ -6,6 +6,12 @@ const storage = {};
 
 const database = {};
 
+/*
+{
+  12345: {title: 'hi', text: 'hello'},
+  23456: {title: 'hey', text: 'yo'}
+ */
+
 storage.find = query => {
   let id = query && query._id;
   return new Promise( (resolve,reject) => {
@@ -36,7 +42,7 @@ storage.delete = id => {
   });
 };
 
-storage.save = (data) => {
+storage.save = (data) => { // this should handle post, put, patch
   return new Promise( (resolve,reject) => {
     data._id = data._id || uuid();
     let record = Object.assign({}, database[data._id], data);

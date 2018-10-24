@@ -39,7 +39,8 @@ router.post('/api/v1/notes', (request,response,next) => {
 });
 
 router.put('/api/v1/notes/:id', (request,response,next) => {
-  notes.save(request.params.id, request.body)
+  //changed to put lose the memory first try.. look up!!
+  notes.put(request.params.id, request.body)
     .then( result => sendJSON(result, response) )
     .catch( next );
 });

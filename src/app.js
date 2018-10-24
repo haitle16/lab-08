@@ -15,7 +15,7 @@ const app = express();
 
 // App Level MW
 app.use(cors());
-app.use(morgan('dev'));
+app.use(morgan('dev')); //logging out
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
