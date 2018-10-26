@@ -1,8 +1,9 @@
 'use strict';
 
-import storage from '../lib/storage/memory.js'; // today going to be memory.js
+// import storage from '../lib/storage/memory.js'; // today going to be memory.js
 // import storage from 'fileStorage';
 // import storage from 'mongostuff';
+import storage from '../lib/storage/storage.js';
 
 
 class Notes {
