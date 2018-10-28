@@ -41,12 +41,14 @@ router.post('/api/v1/users', (request,response,next) => {
 
 router.put('/api/v1/users/:id', (request,response,next) => {
     //changed to put lose the memory first try.. look up!!
+    console.log(request.body);
     users.put(request.params.id, request.body)
         .then( result => sendJSON(result, response) )
         .catch( next );
 });
 
 router.patch('/api/v1/users/:id', (request,response,next) => {
+    console.log(request.body);
     users.patch(request.params.id, request.body)
         .then( result => sendJSON(result, response) )
         .catch( next );
@@ -54,8 +56,11 @@ router.patch('/api/v1/users/:id', (request,response,next) => {
 
 router.delete('/api/v1/users/:id', (request,response,next) => {
     users.delete(request.params.id)
-        .then( result => sendJSON(result, response) )
-        .catch( next );
+        .then( () => {
+            response.statusCode = 200;
+            response.end();
+        } )
+        .catch( console.error );
 });
 
 export default router;

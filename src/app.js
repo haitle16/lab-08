@@ -15,15 +15,15 @@ import userRouter from './api/user.js';
 const app = express();
 
 // App Level MW
-app.use(cors());
 app.use(morgan('dev')); //logging out
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 // Routes
 app.use(notesRouter);
-app.use(userRouter);
+// app.use(userRouter);
 
 // Catchalls
 app.use(notFound);

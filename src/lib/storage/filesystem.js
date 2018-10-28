@@ -57,6 +57,8 @@ storage.save = (data) => { // this should handle post, put, patch
     return new Promise( (resolve,reject) => {
         data._id = data._id || uuid();
         let record = Object.assign({}, database[data._id], data);
+        // console.log(record);
+        // console.log(database[data._id], data);
         database[record._id] = record;
         storage.saveDatabase()
             .then( () => resolve(database[data._id]))
